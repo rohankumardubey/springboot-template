@@ -1,2 +1,2 @@
 # springboot-template
-getting started template for spring  boot
+getting started template for spring  boot.
