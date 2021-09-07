@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>projectnameApi</module>
+        <module>projectnameapi</module>
         <module>projectnameService</module>
     </modules>
     <parent>
@@ -21,5 +21,57 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <mainClass>com.clairvoyant.springboottemplate.SpringbootTemplateApplication</mainClass>
+                        <jvmArguments>${argLine}</jvmArguments>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>start-spring-boot</id>
+                            <phase>pre-integration-test</phase>
+                            <goals>
+                                <goal>start</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>stop-spring-boot</id>
+                            <phase>post-integration-test</phase>
+                            <goals>
+                                <goal>stop</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+
+
+                    <version>2.8.0</version>
+                    <configuration>
+                        <from>
+                            <image>gcr.io/distroless/java:8</image>
+                        </from>
+                        <allowInsecureRegistries>true</allowInsecureRegistries>
+                        <to>
+                            <image>springboot-template</image>
+                        </to>
+                        <container>
+                            <mainClass>com.clairvoyant.springboottemplate.SpringbootTemplateApplication</mainClass>
+                            <user>nobody:nogroup</user>
+                        </container>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
