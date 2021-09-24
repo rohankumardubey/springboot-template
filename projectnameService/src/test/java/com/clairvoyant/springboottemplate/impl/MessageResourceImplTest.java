@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.testcontainers.utility.DockerImageName;
 import com.clairvoyant.springboottemplate.api.models.Message;
 import com.clairvoyant.springboottemplate.db.services.MessageService;
-import com.clairvoyant.springboottemplate.impl.HelloWorldResourceImpl;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -21,7 +20,7 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 //@AutoConfigureMockMvc
 @Testcontainers
-public class HelloWorldResourceImplTest {
+public class MessageResourceImplTest {
 
     private static final DockerImageName DEFAULT_IMAGE_NAME = DockerImageName.parse("postgres");
     public static final String HELLO_WORLD = "Hello World!!!!!";
@@ -30,7 +29,7 @@ public class HelloWorldResourceImplTest {
     //    private MockMvc mvc;
 
     @InjectMocks
-    HelloWorldResourceImpl helloWorldResource;
+    MessageResourceImpl helloWorldResource;
 
     @Mock
     MessageService messageService;

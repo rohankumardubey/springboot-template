@@ -9,7 +9,7 @@ import com.clairvoyant.springboottemplate.api.models.Message;
 
 @RestController
 @RequestMapping(value = "/messages/")
-public interface HelloWorldResource {
+public interface MessageResource {
 
     @GetMapping()
     String getMessage();
