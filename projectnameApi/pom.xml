@@ -11,7 +11,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <jib.skip>true</jib.skip>
+        <!--<jib.skip>true</jib.skip>-->
     </properties>
 
     <artifactId>projectnameapi</artifactId>
@@ -29,15 +29,15 @@
     </dependencies>
 
 
-   <!-- <executions>
-        <execution>
-            <phase>package</phase>
-            <goals>
-                <goal>dockerBuild</goal>
-            </goals>
-        </execution>
-    </executions>
--->
+    <!-- <executions>
+         <execution>
+             <phase>package</phase>
+             <goals>
+                 <goal>dockerBuild</goal>
+             </goals>
+         </execution>
+     </executions>
+ -->
 
 
 </project>
