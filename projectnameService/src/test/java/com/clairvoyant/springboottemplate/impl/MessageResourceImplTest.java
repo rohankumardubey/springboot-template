@@ -12,42 +12,25 @@ import org.junit.jupiter.api.Test;
 import org.testcontainers.utility.DockerImageName;
 import com.clairvoyant.springboottemplate.api.models.Message;
 import com.clairvoyant.springboottemplate.db.services.MessageService;
-import com.clairvoyant.springboottemplate.impl.HelloWorldResourceImpl;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 
 @SpringBootTest
-//@AutoConfigureMockMvc
 @Testcontainers
-public class HelloWorldResourceImplTest {
+public class MessageResourceImplTest {
 
     private static final DockerImageName DEFAULT_IMAGE_NAME = DockerImageName.parse("postgres");
     public static final String HELLO_WORLD = "Hello World!!!!!";
 
-    //    @Autowired
-    //    private MockMvc mvc;
 
     @InjectMocks
-    HelloWorldResourceImpl helloWorldResource;
+    MessageResourceImpl helloWorldResource;
 
     @Mock
     MessageService messageService;
 
-    @Container
-    public static PostgreSQLContainer container = new PostgreSQLContainer(DEFAULT_IMAGE_NAME.withTag("9.6.12"))
-            .withUsername("duke")
-            .withPassword("password")
-            .withDatabaseName("test");
-
-    // requires Spring Boot >= 2.2.6
-    @DynamicPropertySource
-    static void properties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", container::getJdbcUrl);
-        registry.add("spring.datasource.password", container::getPassword);
-        registry.add("spring.datasource.username", container::getUsername);
-    }
 
     @Test
     public void getHello() throws Exception {
